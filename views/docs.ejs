@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Documents - justSearch</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
+        <!-- LOGO -->
+        <div class="logo">
+            <a href="/">justSearch</a>
+        </div>
+
+
+        <!-- NAVIGATION LINKS -->
+        <div class="nav-links" id="navLinks">
+
+            <a href="/">Home</a>
+
+            <a href="/docs">Documents</a>
+
+            <a href="/admin">Upload</a>
+
+            <a href="#">About</a>
+
+            <a href="#">Contact</a>
+
+        </div>
+
+
+        <!-- MOBILE MENU BUTTON -->
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button"
+        >
+            ☰
+        </button>
+
+    </nav>
+
+
+<!-- CATEGORY NAVIGATION -->
+
+<div class="category-bar">
+
+    <div class="category-scroll">
+      
+        <a href="/" class="category-item">
+            Home
+        </a>
+
+        <a href="/videos" class="category-item">
+            Videos
+        </a>
+
+        <a href="/movies" class="category-item">
+            Movies
+        </a>
+
+        <a href="/games" class="category-item">
+            Games
+        </a>
+
+        <a href="/apps" class="category-item">
+            Apps
+        </a>
+
+        <a href="/music" class="category-item">
+            Music
+        </a>
+
+        <a href="/docs" class="category-item">
+            Documents
+        </a>
+
+        <a href="/Pictures" class="category-item">
+            Pictures
+        </a>
+
+        <a href="/books" class="category-item">
+            Books
+        </a>
+        
+        <a href="/news" class="category-item">
+            News
+        </a>
+
+    </div>
+
+</div>
+
+
+    <!-- =========================
+         MAIN DOCUMENT AREA
+    ========================== -->
+
+    <main class="docs-main">
+
+        <div class="container">
+
+            <h1>Documents</h1>
+            
+<div class="docs-search">
+
+    <input
+        type="search"
+        id="searchInput"
+        placeholder="Search documents..."
+        autocomplete="off"
+    >
+
+    <button id="searchButton" type="button">
+        🔍
+    </button>
+
+</div>
+
+             <div id="docsContainer">
+
+    <!-- Loading spinner -->
+
+    <div id="docsLoading" class="docs-loading">
+
+        <div class="loading-spinner"></div>
+
+        <p>Loading documents...</p>
+
+    </div>
+
+</div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer">
+
+        <div class="footer-content">
+
+
+            <!-- ABOUT -->
+            <div class="footer-section">
+
+                <h3>justSearch</h3>
+
+                <p>
+                 Search less. Find what's useful.
+                </p>
+
+            </div>
+
+
+            <!-- QUICK LINKS -->
+            <div class="footer-section">
+
+                <h3>Quick Links</h3>
+
+                <a href="/">Home</a>
+
+                <a href="/docs">Documents</a>
+
+                <a href="/admin">Upload</a>
+
+            </div>
+
+
+            <!-- INFORMATION -->
+            <div class="footer-section">
+
+                <h3>Information</h3>
+
+                <a href="#">About Us</a>
+
+                <a href="#">Contact</a>
+
+                <a href="#">Privacy Policy</a>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- COPYRIGHT -->
+
+        <div class="footer-bottom">
+
+            <p>
+                © <span id="year"></span> justSearch.
+                All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="/js/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>justSearch</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css"
+    >
+
+</head>
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <a href="/">
+                justSearch
+            </a>
+
+        </div>
+
+
+        <div
+            class="nav-links"
+            id="navLinks"
+        >
+
+            <a href="/">
+                Home
+            </a>
+
+            <a href="/docs">
+                Documents
+            </a>
+
+            <a href="/admin">
+                Upload
+            </a>
+
+            <a href="#">
+                About
+            </a>
+
+            <a href="#">
+                Contact
+            </a>
+
+        </div>
+
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button"
+        >
+            ☰
+        </button>
+
+    </nav>
+
+
+
+    <!-- =========================
+         CATEGORY BAR
+    ========================== -->
+
+    <div class="category-bar">
+
+        <div class="category-scroll">
+          
+        <a href="/" class="category-item">
+            Home
+        </a>
+
+            <a
+                href="/Trending"
+                class="category-item"
+            >
+                🔥 Trending
+            </a>
+
+            <a
+                href="/games"
+                class="category-item"
+            >
+                🎮 Games
+            </a>
+
+            <a
+                href="/videos"
+                class="category-item"
+            >
+                🎬 Videos
+            </a>
+
+            <a
+                href="/movies"
+                class="category-item"
+            >
+                🎥 Movies
+            </a>
+
+            <a
+                href="/music"
+                class="category-item"
+            >
+                🎵 Music
+            </a>
+
+            <a
+                href="/apps"
+                class="category-item"
+            >
+                📱 Apps
+            </a>
+
+            <a
+                href="/docs"
+                class="category-item"
+            >
+                📄 Documents
+            </a>
+
+            <a
+                href="/pictures"
+                class="category-item"
+            >
+                🖼️ Pictures
+            </a>
+
+            <a
+                href="/news"
+                class="category-item"
+            >
+                📰 News
+            </a>
+
+            <a
+                href="/technology"
+                class="category-item"
+            >
+                💻 Technology
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main class="home-main">
+
+
+        <!-- =========================
+             SEARCH
+        ========================== -->
+
+        <section class="home-search">
+
+            <h1>
+                Discover what's trending
+            </h1>
+
+            <p>
+                Find popular and interesting content.
+            </p>
+
+
+            <div class="home-search-box">
+
+                <input
+                    type="search"
+                    placeholder="Search justSearch..."
+                    id="homeSearch"
+                >
+
+                <button
+                    type="button"
+                    id="homeSearchButton"
+                >
+                    🔍
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             TRENDING
+        ========================== -->
+
+        <section class="content-section">
+
+            <div class="section-heading">
+
+                <h2>
+                    🔥 Trending
+                </h2>
+
+                <a href="#">
+                    See all
+                </a>
+
+            </div>
+
+
+            <div class="content-grid">
+
+                <% if (trending.length === 0) { %>
+
+                    <p style="padding: 20px;">
+                        No trending content yet.
+                    </p>
+
+                <% } %>
+
+
+                <% trending.forEach(item => { %>
+
+
+<a
+    href="/content/<%= item._id %>"
+    class="content-card"
+>
+
+                        <div class="card-image">
+
+                            <% if (item.imageUrl) { %>
+
+                                <img
+                                    src="<%= item.imageUrl %>"
+                                    alt="<%= item.title %>"
+                                >
+
+                            <% } else { %>
+
+                                🔥
+
+                            <% } %>
+
+                        </div>
+
+
+                        <div class="card-content">
+
+                            <h3>
+                                <%= item.title %>
+                            </h3>
+
+
+                            <p>
+                                <%= item.description %>
+                            </p>
+
+
+                            <small>
+                                <%= item.category %>
+                            </small>
+
+                        </div>
+
+                    </a>
+
+
+                <% }); %>
+
+            </div>
+
+        </section>
+
+
+
+<!-- =========================
+     SUGGESTED
+========================= -->
+
+<section class="content-section">
+
+    <div class="section-heading">
+
+        <h2>
+            ✨ Suggested
+        </h2>
+
+        <a href="/trending">
+            See all
+        </a>
+
+    </div>
+
+
+    <div class="content-grid">
+
+        <% if (suggested.length === 0) { %>
+
+            <p style="padding: 20px;">
+                No suggestions available yet.
+            </p>
+
+        <% } %>
+
+
+        <% suggested.forEach(item => { %>
+
+
+            <a
+                href="<%= item.contentUrl %>"
+                class="content-card"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+
+
+                <div class="card-image">
+
+                    <% if (item.imageUrl) { %>
+
+                        <img
+                            src="<%= item.imageUrl %>"
+                            alt="<%= item.title %>"
+                            loading="lazy"
+                        >
+
+                    <% } else { %>
+
+                        ✨
+
+                    <% } %>
+
+                </div>
+
+
+                <div class="card-content">
+
+                    <h3>
+                        <%= item.title %>
+                    </h3>
+
+
+                    <% if (item.description) { %>
+
+                        <p>
+                            <%= item.description %>
+                        </p>
+
+                    <% } %>
+
+
+                    <small>
+                        <%= item.category %>
+                    </small>
+
+                </div>
+
+
+            </a>
+
+
+        <% }); %>
+
+    </div>
+
+</section>
+
+
+
+        <!-- =========================
+             LATEST
+        ========================== -->
+
+        <section class="content-section">
+
+            <div class="section-heading">
+
+                <h2>
+                    🆕 Latest
+                </h2>
+
+                <a href="#">
+                    See all
+                </a>
+
+            </div>
+
+
+            <div class="latest-list">
+
+                <% if (latest.length === 0) { %>
+
+                    <p style="padding: 20px;">
+                        No content available yet.
+                    </p>
+
+                <% } %>
+
+
+                <% latest.forEach(item => { %>
+
+
+<a
+    href="/content/<%= item._id %>"
+    class="latest-item"
+>
+  
+
+                        <div class="latest-icon">
+
+                            📄
+
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                <%= item.title %>
+                            </h3>
+
+
+                            <p>
+                                <%= item.category %>
+                            </p>
+
+                        </div>
+
+                    </a>
+
+
+                <% }); %>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             POPULAR
+        ========================== -->
+
+        <section class="content-section">
+
+            <div class="section-heading">
+
+                <h2>
+                    ⭐ Popular
+                </h2>
+
+                <a href="#">
+                    See all
+                </a>
+
+            </div>
+
+
+            <div class="popular-list">
+
+                <% if (popular.length === 0) { %>
+
+                    <p style="padding: 20px;">
+                        No popular content yet.
+                    </p>
+
+                <% } %>
+
+
+                <% popular.forEach((item, index) => { %>
+
+
+<a
+    href="/content/<%= item._id %>"
+    class="popular-item"
+>
+
+                        <span>
+                            <%= index + 1 %>
+                        </span>
+
+
+                        <div>
+
+                            <strong>
+                                <%= item.title %>
+                            </strong>
+
+
+                            <small>
+                                <%= item.views || 0 %> views
+                            </small>
+
+                        </div>
+
+                    </a>
+
+
+                <% }); %>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer">
+
+        <div class="footer-content">
+
+
+            <!-- ABOUT -->
+
+            <div class="footer-section">
+
+                <h3>
+                    justSearch
+                </h3>
+
+                <p>
+                    Discover popular and interesting
+                    content in one place.
+                </p>
+
+            </div>
+
+
+            <!-- QUICK LINKS -->
+
+            <div class="footer-section">
+
+                <h3>
+                    Quick Links
+                </h3>
+
+                <a href="/">
+                    Home
+                </a>
+
+                <a href="/docs">
+                    Documents
+                </a>
+
+                <a href="/admin">
+                    Upload
+                </a>
+
+            </div>
+
+
+            <!-- INFORMATION -->
+
+            <div class="footer-section">
+
+                <h3>
+                    Information
+                </h3>
+
+                <a href="#">
+                    About
+                </a>
+
+                <a href="#">
+                    Contact
+                </a>
+
+                <a href="#">
+                    Privacy Policy
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- COPYRIGHT -->
+
+        <div class="footer-bottom">
+
+            <p>
+
+                ©
+
+                <span id="year"></span>
+
+                justSearch.
+
+                All rights reserved.
+
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="/js/script.js"></script>
+
+</body>
+
+</html>

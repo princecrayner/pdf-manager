@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        <%= content.title %> - justSearch
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css"
+    >
+
+</head>
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <a href="/">
+                justSearch
+            </a>
+
+        </div>
+
+
+        <div
+            class="nav-links"
+            id="navLinks"
+        >
+
+            <a href="/">
+                Home
+            </a>
+
+            <a href="/docs">
+                Documents
+            </a>
+
+            <a href="/admin">
+                Upload
+            </a>
+
+            <a href="#">
+                About
+            </a>
+
+            <a href="#">
+                Contact
+            </a>
+
+        </div>
+
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button"
+        >
+            ☰
+        </button>
+
+    </nav>
+
+
+
+    <!-- =========================
+         CATEGORY BAR
+    ========================== -->
+
+    <div class="category-bar">
+
+        <div class="category-scroll">
+
+            <a
+                href="/category/Trending"
+                class="category-item"
+            >
+                Trending
+            </a>
+
+            <a
+                href="/category/Videos"
+                class="category-item"
+            >
+                Videos
+            </a>
+
+            <a
+                href="/category/Movies"
+                class="category-item"
+            >
+                Movies
+            </a>
+
+            <a
+                href="/category/Music"
+                class="category-item"
+            >
+                Music
+            </a>
+
+            <a
+                href="/category/Games"
+                class="category-item"
+            >
+                Games
+            </a>
+
+            <a
+                href="/category/Apps"
+                class="category-item"
+            >
+                Apps
+            </a>
+
+            <a
+                href="/docs"
+                class="category-item"
+            >
+                Documents
+            </a>
+
+            <a
+                href="/category/Pictures"
+                class="category-item"
+            >
+                Pictures
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="content-page">
+
+        <div class="content-detail">
+
+
+            <!-- IMAGE -->
+
+            <div class="content-detail-image">
+
+                <% if (content.imageUrl) { %>
+
+                    <img
+                        src="<%= content.imageUrl %>"
+                        alt="<%= content.title %>"
+                    >
+
+                <% } else { %>
+
+                    <div class="content-detail-placeholder">
+                        ✨
+                    </div>
+
+                <% } %>
+
+            </div>
+
+
+
+            <!-- INFORMATION -->
+
+            <div class="content-detail-info">
+
+
+                <span class="content-category">
+
+                    <%= content.category %>
+
+                </span>
+
+
+                <h1>
+
+                    <%= content.title %>
+
+                </h1>
+
+
+                <% if (content.description) { %>
+
+                    <p class="content-description">
+
+                        <%= content.description %>
+
+                    </p>
+
+                <% } %>
+
+
+                <div class="content-meta">
+
+                    👁
+                    <%= content.views %>
+                    views
+
+                </div>
+
+
+                <div class="content-actions">
+
+                    <a
+                        href="<%= content.contentUrl %>"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="visit-content-button"
+                    >
+
+                        Visit Content ↗
+
+                    </a>
+
+
+                    <a
+                        href="/"
+                        class="back-home-button"
+                    >
+
+                        ← Back to Home
+
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer">
+
+        <div class="footer-content">
+
+
+            <div class="footer-section">
+
+                <h3>
+                    justSearch
+                </h3>
+
+                <p>
+                    Discover popular and interesting
+                    content in one place.
+                </p>
+
+            </div>
+
+
+            <div class="footer-section">
+
+                <h3>
+                    Quick Links
+                </h3>
+
+                <a href="/">
+                    Home
+                </a>
+
+                <a href="/docs">
+                    Documents
+                </a>
+
+                <a href="/admin">
+                    Upload
+                </a>
+
+            </div>
+
+
+            <div class="footer-section">
+
+                <h3>
+                    Information
+                </h3>
+
+                <a href="#">
+                    About
+                </a>
+
+                <a href="#">
+                    Contact
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+
+                ©
+                <span id="year"></span>
+                justSearch.
+                All rights reserved.
+
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <script src="/js/script.js"></script>
+
+</body>
+
+</html>

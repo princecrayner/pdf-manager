@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title><%= category %> - justSearch</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css"
+    >
+
+</head>
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <a href="/">
+                justSearch
+            </a>
+
+        </div>
+
+
+        <div
+            class="nav-links"
+            id="navLinks"
+        >
+
+            <a href="/">
+                Home
+            </a>
+
+            <a href="/docs">
+                Documents
+            </a>
+
+            <a href="/admin">
+                Upload
+            </a>
+
+            <a href="#">
+                About
+            </a>
+
+            <a href="#">
+                Contact
+            </a>
+
+        </div>
+
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button"
+        >
+            ☰
+        </button>
+
+    </nav>
+
+
+
+    <!-- =========================
+         CATEGORY BAR
+    ========================== -->
+
+    <div class="category-bar">
+
+        <div class="category-scroll">
+          
+        <a href="/" class="category-item">
+            Home
+        </a>
+
+            <a
+                href="/Trending"
+                class="category-item"
+            >
+                🔥 Trending
+            </a>
+
+            <a
+                href="/Videos"
+                class="category-item"
+            >
+                🎬 Videos
+            </a>
+
+            <a
+                href="/Movies"
+                class="category-item"
+            >
+                🎥 Movies
+            </a>
+
+            <a
+                href="/Music"
+                class="category-item"
+            >
+                🎵 Music
+            </a>
+
+            <a
+                href="/Games"
+                class="category-item"
+            >
+                🎮 Games
+            </a>
+
+            <a
+                href="/Apps"
+                class="category-item"
+            >
+                📱 Apps
+            </a>
+
+            <a
+                href="/docs"
+                class="category-item"
+            >
+                📄 Documents
+            </a>
+
+            <a
+                href="/Pictures"
+                class="category-item"
+            >
+                🖼️ Pictures
+            </a>
+
+            <a
+                href="/News"
+                class="category-item"
+            >
+                📰 News
+            </a>
+
+            <a
+                href="/Technology"
+                class="category-item"
+            >
+                💻 Technology
+            </a>
+
+            <a
+                href="/Entertainment"
+                class="category-item"
+            >
+                🎭 Entertainment
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main class="category-main">
+
+
+        <div class="category-container">
+
+
+            <!-- PAGE TITLE -->
+
+            <div class="category-header">
+
+                <h1>
+                    <%= category %>
+                </h1>
+
+                <p>
+                    Discover content in <%= category.toLowerCase() %>.
+                </p>
+
+            </div>
+
+
+
+            <!-- =========================
+                 CONTENT
+            ========================== -->
+
+            <% if (content.length === 0) { %>
+
+                <div class="empty-category">
+
+                    <div class="empty-icon">
+                        📭
+                    </div>
+
+                    <h2>
+                        Nothing here yet
+                    </h2>
+
+                    <p>
+                        There is no content in this category yet.
+                    </p>
+
+                    <a href="/">
+                        Back to homepage
+                    </a>
+
+                </div>
+
+            <% } else { %>
+
+
+                <div class="category-grid">
+
+
+                    <% content.forEach(item => { %>
+
+
+<a
+    href="<%= item.contentUrl %>"
+    class="content-card content-link"
+    data-id="<%= item._id %>"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+
+
+                            <!-- IMAGE -->
+
+                            <div class="card-image">
+
+                                <% if (item.imageUrl) { %>
+
+                                    <img
+                                        src="<%= item.imageUrl %>"
+                                        alt="<%= item.title %>"
+                                        loading="lazy"
+                                    >
+
+                                <% } else { %>
+
+                                    <div class="default-card-image">
+                                        <%= category === "Games" ? "🎮" :
+                                            category === "Music" ? "🎵" :
+                                            category === "Movies" ? "🎬" :
+                                            category === "Videos" ? "🎥" :
+                                            category === "Apps" ? "📱" :
+                                            category === "Technology" ? "💻" :
+                                            category === "News" ? "📰" :
+                                            "✨" %>
+                                    </div>
+
+                                <% } %>
+
+                            </div>
+
+
+
+                            <!-- CONTENT -->
+
+                            <div class="card-content">
+
+                                <h3>
+                                    <%= item.title %>
+                                </h3>
+
+                                <% if (item.description) { %>
+
+                                    <p>
+                                        <%= item.description %>
+                                    </p>
+
+                                <% } %>
+
+
+                                <div class="card-meta">
+
+                                    <span>
+                                        <%= item.category %>
+                                    </span>
+
+                                    <span>
+                                        👁 <%= item.views %>
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                        </a>
+
+
+                    <% }); %>
+
+
+                </div>
+
+
+            <% } %>
+
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer">
+
+        <div class="footer-content">
+
+
+            <div class="footer-section">
+
+                <h3>
+                    justSearch
+                </h3>
+
+                <p>
+                    Discover popular and interesting
+                    content in one place.
+                </p>
+
+            </div>
+
+
+            <div class="footer-section">
+
+                <h3>
+                    Quick Links
+                </h3>
+
+                <a href="/">
+                    Home
+                </a>
+
+                <a href="/docs">
+                    Documents
+                </a>
+
+                <a href="/admin">
+                    Upload
+                </a>
+
+            </div>
+
+
+            <div class="footer-section">
+
+                <h3>
+                    Information
+                </h3>
+
+                <a href="#">
+                    About
+                </a>
+
+                <a href="#">
+                    Contact
+                </a>
+
+                <a href="#">
+                    Privacy Policy
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+
+                ©
+                <span id="year"></span>
+                justSearch.
+                All rights reserved.
+
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <script src="/js/script.js"></script>
+
+</body>
+
+</html>

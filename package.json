@@ -1,0 +1,27 @@
+{
+  "name": "pdf-manager",
+  "version": "1.0.0",
+  "main": "server.js",
+  "dependencies": {
+    "cloudinary": "^1.41.3",
+    "daemon": "^1.1.0",
+    "dotenv": "^17.4.2",
+    "ejs": "^6.0.1",
+    "express": "^5.2.1",
+    "init": "^0.1.2",
+    "mongoose": "^9.9.1",
+    "multer": "^2.2.0",
+    "multer-storage-cloudinary": "^4.0.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

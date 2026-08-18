@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Admin - justSearch</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css"
+    >
+
+</head>
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <a href="/">
+                justSearch
+            </a>
+
+        </div>
+
+
+        <div
+            class="nav-links"
+            id="navLinks"
+        >
+
+            <a href="/">
+                Home
+            </a>
+
+            <a href="/docs">
+                Documents
+            </a>
+
+            <a href="/admin">
+                Upload
+            </a>
+
+        </div>
+
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button"
+        >
+            ☰
+        </button>
+
+    </nav>
+
+
+
+    <!-- =========================
+         ADMIN PAGE
+    ========================== -->
+
+    <main class="admin-main">
+
+        <div class="admin-container">
+
+
+            <!-- =========================
+                 PDF UPLOAD
+            ========================== -->
+
+            <section class="admin-section">
+
+                <h1>
+                    📄 Upload PDF
+                </h1>
+
+                <p class="admin-description">
+
+                    Upload a PDF that will appear
+                    in the Documents section.
+
+                </p>
+
+
+                <form id="uploadForm">
+
+
+                    <!-- PDF NAME -->
+
+                    <div class="form-group">
+
+                        <label for="pdfName">
+                            PDF Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="pdfName"
+                            name="name"
+                            placeholder="Enter PDF name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- PDF FILE -->
+
+                    <div class="form-group">
+
+                        <label for="pdfFile">
+                            Select PDF
+                        </label>
+
+                        <input
+                            type="file"
+                            id="pdfFile"
+                            name="pdf"
+                            accept=".pdf,application/pdf"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- PDF BUTTON -->
+
+                    <button
+                        type="submit"
+                    >
+
+                        Upload PDF
+
+                    </button>
+
+
+                </form>
+
+            </section>
+
+
+
+            <!-- DIVIDER -->
+
+            <hr>
+
+
+
+            <!-- =========================
+                 HOMEPAGE CONTENT
+            ========================== -->
+
+            <section class="admin-section">
+
+                <h1>
+                    🌐 Add Homepage Content
+                </h1>
+
+
+                <p class="admin-description">
+
+                    Add content that will appear on
+                    the justSearch homepage.
+
+                </p>
+
+
+
+                <form id="contentForm">
+
+
+                    <!-- TITLE -->
+
+                    <div class="form-group">
+
+                        <label for="title">
+                            Title
+                        </label>
+
+                        <input
+                            type="text"
+                            id="title"
+                            name="title"
+                            placeholder="Enter content title"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- DESCRIPTION -->
+
+                    <div class="form-group">
+
+                        <label for="description">
+                            Description
+                        </label>
+
+                        <textarea
+                            id="description"
+                            name="description"
+                            placeholder="Enter a short description"
+                            rows="4"
+                        ></textarea>
+
+                    </div>
+
+
+
+                    <!-- CATEGORY -->
+
+                    <div class="form-group">
+
+                        <label for="category">
+                            Category
+                        </label>
+
+
+                        <select
+                            id="category"
+                            name="category"
+                            required
+                        >
+
+                            <option value="">
+                                Select a category
+                            </option>
+
+                            <option value="Trending">
+                                Trending
+                            </option>
+
+                            <option value="Videos">
+                                Videos
+                            </option>
+
+                            <option value="Movies">
+                                Movies
+                            </option>
+
+                            <option value="Music">
+                                Music
+                            </option>
+
+                            <option value="Games">
+                                Games
+                            </option>
+
+                            <option value="Apps">
+                                Apps
+                            </option>
+
+                            <option value="Documents">
+                                Documents
+                            </option>
+
+                            <option value="Pictures">
+                                Pictures
+                            </option>
+
+                            <option value="News">
+                                News
+                            </option>
+
+                            <option value="Technology">
+                                Technology
+                            </option>
+
+                            <option value="Entertainment">
+                                Entertainment
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                  
+
+<!-- IMAGE UPLOAD -->
+
+<div class="form-group">
+
+    <label for="contentImage">
+        Homepage Image
+    </label>
+
+    <input
+        type="file"
+        id="contentImage"
+        name="image"
+        accept="image/jpeg,image/png,image/webp"
+    >
+
+    <small>
+
+        Upload a JPG, PNG or WebP image.
+        Maximum size: 5MB.
+
+    </small>
+
+</div>
+
+
+<!-- CONTENT URL -->
+
+                    <div class="form-group">
+
+                        <label for="contentUrl">
+                            Content URL
+                        </label>
+
+                        <input
+                            type="url"
+                            id="contentUrl"
+                            name="contentUrl"
+                            placeholder="https://example.com"
+                        >
+
+                        <small>
+
+                            Users will be taken to this
+                            address when they click the content.
+
+                        </small>
+
+                    </div>
+
+
+
+                    <!-- CONTENT BUTTON -->
+
+                    <button
+                        type="submit"
+                        id="contentSubmitButton"
+                    >
+
+                        Add Content
+
+                    </button>
+
+
+                </form>
+
+
+                <!-- MESSAGE -->
+
+                <div
+                    id="contentMessage"
+                    class="content-message"
+                ></div>
+
+
+            </section>
+    
+           <hr>
+            
+            <!-- =========================
+     MANAGE HOMEPAGE CONTENT
+========================= -->
+
+<section class="admin-section">
+
+    <h1>
+        📋 Manage Homepage Content
+    </h1>
+
+    <p class="admin-description">
+
+        View and remove content currently
+        published on justSearch.
+
+    </p>
+
+
+    <!-- LOADING -->
+
+    <div
+        id="adminContentLoading"
+        class="admin-loading"
+    >
+
+        <div class="loading-spinner"></div>
+
+        <p>
+            Loading content...
+        </p>
+
+    </div>
+
+
+    <!-- CONTENT LIST -->
+
+    <div
+        id="adminContentList"
+        class="admin-content-list"
+    ></div>
+
+</section>
+
+
+        </div>
+
+    </main>
+
+
+<!-- =========================
+     EDIT CONTENT
+========================= -->
+
+<div
+    id="editContentModal"
+    class="edit-content-modal"
+>
+
+    <div class="edit-content-box">
+
+        <button
+            type="button"
+            id="closeEditContent"
+            class="close-edit-content"
+        >
+            ×
+        </button>
+
+
+        <h2>
+            ✏️ Edit Content
+        </h2>
+
+
+        <form id="editContentForm">
+
+            <input
+                type="hidden"
+                id="editContentId"
+            >
+
+
+            <div class="form-group">
+
+                <label>
+                    Title
+                </label>
+
+                <input
+                    type="text"
+                    id="editTitle"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Description
+                </label>
+
+                <textarea
+                    id="editDescription"
+                    rows="4"
+                ></textarea>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Category
+                </label>
+
+                <select id="editCategory" required>
+
+                    <option value="Trending">
+                        Trending
+                    </option>
+
+                    <option value="Videos">
+                        Videos
+                    </option>
+
+                    <option value="Movies">
+                        Movies
+                    </option>
+
+                    <option value="Music">
+                        Music
+                    </option>
+
+                    <option value="Games">
+                        Games
+                    </option>
+
+                    <option value="Apps">
+                        Apps
+                    </option>
+
+                    <option value="Documents">
+                        Documents
+                    </option>
+
+                    <option value="Pictures">
+                        Pictures
+                    </option>
+
+                    <option value="News">
+                        News
+                    </option>
+
+                    <option value="Technology">
+                        Technology
+                    </option>
+
+                    <option value="Entertainment">
+                        Entertainment
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Image URL
+                </label>
+
+                <input
+                    type="url"
+                    id="editImageUrl"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Content URL
+                </label>
+
+                <input
+                    type="url"
+                    id="editContentUrl"
+                    required
+                >
+
+            </div>
+
+
+            <button
+                type="submit"
+                id="editContentButton"
+            >
+                Save Changes
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer">
+
+        <div class="footer-content">
+
+
+            <div class="footer-section">
+
+                <h3>
+                    justSearch
+                </h3>
+
+                <p>
+                    Discover popular and interesting
+                    content in one place.
+                </p>
+
+            </div>
+
+
+            <div class="footer-section">
+
+                <h3>
+                    Quick Links
+                </h3>
+
+                <a href="/">
+                    Home
+                </a>
+
+                <a href="/docs">
+                    Documents
+                </a>
+
+                <a href="/admin">
+                    Upload
+                </a>
+
+            </div>
+
+
+            <div class="footer-section">
+
+                <h3>
+                    Information
+                </h3>
+
+                <a href="#">
+                    About
+                </a>
+
+                <a href="#">
+                    Contact
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+
+                ©
+                <span id="year"></span>
+                justSearch.
+                All rights reserved.
+
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <script src="/js/script.js"></script>
+
+</body>
+
+</html>
